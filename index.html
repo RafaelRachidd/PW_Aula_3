@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Quiz interativo sobre os Pokémon da primeira geração. Teste seus conhecimentos sobre Kanto!">
+
+    <title>Pokémon Quiz | Geração 1</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ============================= -->
+    <!-- FUNDO DECORATIVO -->
+    <!-- ============================= -->
+
+    <div class="background">
+        <div class="pokeball-decoration pokeball-1"></div>
+        <div class="pokeball-decoration pokeball-2"></div>
+        <div class="pokeball-decoration pokeball-3"></div>
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- CONTAINER PRINCIPAL -->
+    <!-- ============================= -->
+
+    <main class="container">
+
+
+        <!-- ============================= -->
+        <!-- TELA INICIAL -->
+        <!-- ============================= -->
+
+        <section id="start-screen" class="screen active">
+
+            <div class="home-card">
+
+                <div class="logo">
+
+                    <div class="logo-pokeball">
+                        <div class="pokeball-center"></div>
+                    </div>
+
+                    <span>POKÉMON</span>
+
+                    <small>QUIZ</small>
+
+                </div>
+
+
+                <div class="home-content">
+
+                    <h1>Você conhece<br>
+                        <span>Kanto?</span>
+                    </h1>
+
+                    <p>
+                        Teste seus conhecimentos sobre os Pokémon
+                        da primeira geração!
+                    </p>
+
+
+                    <div class="quiz-info">
+
+                        <div class="info-item">
+                            <span>🎯</span>
+                            <strong>15</strong>
+                            <small>Perguntas</small>
+                        </div>
+
+                        <div class="info-item">
+                            <span>⏱️</span>
+                            <strong>15s</strong>
+                            <small>Por pergunta</small>
+                        </div>
+
+                        <div class="info-item">
+                            <span>🏆</span>
+                            <strong>1ª</strong>
+                            <small>Geração</small>
+                        </div>
+
+                    </div>
+
+
+                    <button id="start-btn" class="primary-btn">
+                        COMEÇAR QUIZ
+                        <span>→</span>
+                    </button>
+
+
+                    <p class="best-score">
+                        🏆 Melhor pontuação:
+                        <strong id="best-score-start">0</strong>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ============================= -->
+        <!-- TELA DO QUIZ -->
+        <!-- ============================= -->
+
+        <section id="quiz-screen" class="screen">
+
+            <div class="quiz-card">
+
+
+                <!-- CABEÇALHO -->
+
+                <header class="quiz-header">
+
+                    <div class="quiz-counter">
+                        PERGUNTA
+                        <strong>
+                            <span id="current-question">1</span>
+                            /
+                            <span id="total-questions">15</span>
+                        </strong>
+                    </div>
+
+
+                    <div class="score">
+
+                        <span>⭐</span>
+
+                        <strong id="score">
+                            0
+                        </strong>
+
+                    </div>
+
+                </header>
+
+
+
+                <!-- BARRA DE PROGRESSO -->
+
+                <div class="progress-container">
+
+                    <div id="progress-bar"></div>
+
+                </div>
+
+
+
+                <!-- CRONÔMETRO -->
+
+                <div class="timer">
+
+                    <div class="timer-icon">
+                        ⏱️
+                    </div>
+
+                    <div class="timer-bar-container">
+
+                        <div id="timer-bar"></div>
+
+                    </div>
+
+                    <span id="timer-text">
+                        15
+                    </span>
+
+                </div>
+
+
+
+                <!-- PERGUNTA -->
+
+                <div class="question-area">
+
+                    <span class="question-category">
+                        QUEM É ESSE POKÉMON?
+                    </span>
+
+                    <h2 id="question">
+                        Pergunta
+                    </h2>
+
+                </div>
+
+
+
+                <!-- IMAGEM -->
+
+                <div class="pokemon-image-container">
+
+                    <div class="image-background"></div>
+
+                    <img
+                        id="pokemon-image"
+                        src=""
+                        alt="Pokémon"
+                    >
+
+                </div>
+
+
+
+                <!-- ALTERNATIVAS -->
+
+                <div id="answers" class="answers">
+
+                    <!-- JavaScript adicionará as respostas -->
+
+                </div>
+
+
+
+                <!-- FEEDBACK -->
+
+                <div id="feedback" class="feedback">
+
+                    <span id="feedback-icon"></span>
+
+                    <div>
+
+                        <strong id="feedback-title"></strong>
+
+                        <p id="feedback-text"></p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- BOTÃO PRÓXIMA -->
+
+                <button
+                    id="next-btn"
+                    class="next-btn"
+                    disabled
+                >
+                    PRÓXIMA PERGUNTA
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ============================= -->
+        <!-- TELA DE RESULTADO -->
+        <!-- ============================= -->
+
+        <section id="result-screen" class="screen">
+
+            <div class="result-card">
+
+
+                <div class="trophy">
+                    🏆
+                </div>
+
+
+                <span class="result-label">
+                    QUIZ FINALIZADO
+                </span>
+
+
+                <h1>
+                    Seu resultado
+                </h1>
+
+
+                <div class="final-score">
+
+                    <span id="final-score">
+                        0
+                    </span>
+
+                    <small>
+                        / 15
+                    </small>
+
+                </div>
+
+
+                <div class="result-message">
+
+                    <h2 id="result-title">
+                        Treinador Pokémon!
+                    </h2>
+
+                    <p id="result-description">
+                        Parabéns!
+                    </p>
+
+                </div>
+
+
+                <div class="result-stats">
+
+                    <div>
+                        <strong id="correct-answers">
+                            0
+                        </strong>
+
+                        <span>Acertos</span>
+                    </div>
+
+
+                    <div>
+                        <strong id="wrong-answers">
+                            0
+                        </strong>
+
+                        <span>Erros</span>
+                    </div>
+
+
+                    <div>
+                        <strong id="percentage">
+                            0%
+                        </strong>
+
+                        <span>Aproveitamento</span>
+                    </div>
+
+                </div>
+
+
+                <div class="record-message">
+
+                    🏆
+
+                    <span id="record-text">
+                        Seu melhor resultado!
+                    </span>
+
+                </div>
+
+
+                <button
+                    id="restart-btn"
+                    class="primary-btn"
+                >
+                    JOGAR NOVAMENTE
+                    <span>↻</span>
+                </button>
+
+
+                <button
+                    id="home-btn"
+                    class="secondary-btn"
+                >
+                    VOLTAR AO INÍCIO
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ============================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ============================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
